@@ -13,9 +13,15 @@ import { CreateMessageDto } from './dto/create-message.dto';
 @Controller('messages')
 export class MessagesController {
   messageService: MessagesService;
-
+  /* 
+  // NOTE: BAD: classes should not create instances of its dependencies on its own, instead should use Inversion of control principle
   constructor() {
     this.messageService = new MessagesService();
+  } */
+
+  // NOTE: BETTER: Class receives its dependency of specific type
+  constructor(service: MessagesService) {
+    this.messageService = service;
   }
 
   @Get()
