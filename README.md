@@ -35,3 +35,5 @@ NOTE: Its common to have similar method names on the service and repositories
 - Under the hood DTO use [class-transformer](https://www.npmjs.com/package/class-transformer/) and [class-validator](https://www.npmjs.com/package/class-validator) for data validation
   - Use class-transformer to turn the body into an instance of the DTO class
   - Use class-validator to validate the instance
+
+## NestJS Built in [HTTPExceptions](https://docs.nestjs.com/exception-filters#built-in-http-exceptions)

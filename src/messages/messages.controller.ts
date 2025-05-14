@@ -1,5 +1,13 @@
 import { MessagesService } from './messages.service';
-import { Body, Controller, Get, Param, Post, Headers } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Headers,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateMessageDto } from './dto/create-message.dto';
 
 @Controller('messages')
@@ -24,8 +32,15 @@ export class MessagesController {
   }
 
   @Get('/:id')
-  getMessage(@Param('id') id: string) {
+  async getMessage(@Param('id') id: string) {
     console.log({ id });
-    return this.messageService.findOne(id);
+    const message = await this.messageService.findOne(id);
+
+    if (!message) {
+      /* NestJs has several HttpException available out-of-the-box, refer to docs*/
+      throw new NotFoundException('Message with id not found');
+    }
+
+    return message;
   }
 }
