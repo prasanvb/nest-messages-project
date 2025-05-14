@@ -17,5 +17,12 @@
 ## Data Validation
 
 - `pipes` - validates data before it reaches a route handler
+  - Nest comes with several pipes available out-of-the-box: ValidationPipe, ParseIntPipe, ParseFloatPipe, ParseBoolPipe, ParseArrayPipe, ParseUUIDPipe, ParseEnumPipe, DefaultValuePipe, ParseFilePipe, ParseDatePipe
+  - Custom pipes can also built manual
   - `ValidationPipe` - built nestJs pipe to make data validation
   - `app.useGlobalPipes(new ValidationPipe())` - add validation pipes at global level to the app instance
+
+## Data Transfer Object (DTO)
+
+- DTO class that describes the different properties that the request body should have
+- Add validation rules to the properties using the class-validator object
