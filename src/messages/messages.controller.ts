@@ -20,8 +20,8 @@ export class MessagesController {
   } */
 
   // NOTE: BETTER: Class receives its dependency of specific type
-  constructor(service: MessagesService) {
-    this.messageService = service;
+  constructor(messageService: MessagesService) {
+    this.messageService = messageService;
   }
 
   @Get()
