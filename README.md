@@ -1,5 +1,10 @@
 # NESTJS MESSAGES PROJECT
 
+- Service is place to put any business logic and uses one or more repositories to find or store data
+- Repositories is place to put storage-related logic and usually ends up being a TypeORM entity, a Mongoose schema, or similar
+
+NOTE: Its common to have similar method names on the service and repositories
+
 ## CLI commands
 
 - `nest new my-nest-project` creates a new project
@@ -22,7 +27,11 @@
   - `ValidationPipe` - built nestJs pipe to make data validation
   - `app.useGlobalPipes(new ValidationPipe())` - add validation pipes at global level to the app instance
 
-## Data Transfer Object (DTO)
+## Data Transfer Object [DTO](src/messages/dto/create-message.dto.ts)
 
-- DTO class that describes the different properties that the request body should have
-- Add validation rules to the properties using the class-validator object
+- DTO class that describes the different properties that the request body must have
+- Add validation decorators to the DTO class properties using the class-validator package
+- DTO class with validation rules is applied to the request body in the route method
+- Under the hood DTO use [class-transformer](https://www.npmjs.com/package/class-transformer/) and [class-validator](https://www.npmjs.com/package/class-validator) for data validation
+  - Use class-transformer to turn the body into an instance of the DTO class
+  - Use class-validator to validate the instance
