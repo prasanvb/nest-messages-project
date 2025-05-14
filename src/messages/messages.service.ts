@@ -9,8 +9,8 @@ export class MessagesService {
   } */
 
   // NOTE: BETTER: Class receives its dependency of specific type
-  constructor(repo: MessagesRepositories) {
-    this.messagesRepo = repo;
+  constructor(messagesRepo: MessagesRepositories) {
+    this.messagesRepo = messagesRepo;
   }
 
   findAll() {
