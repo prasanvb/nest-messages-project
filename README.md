@@ -1,9 +1,12 @@
 # NESTJS MESSAGES PROJECT
 
+NOTE: Its common to have similar method names on the service and repositories
+
 - Service is place to put any business logic and uses one or more repositories to find or store data
 - Repositories is place to put storage-related logic and usually ends up being a TypeORM entity, a Mongoose schema, or similar
-
-NOTE: Its common to have similar method names on the service and repositories
+- Dependency injection is all about making use of inversion of control, but not having to create a ton of different classes or a ton of different instances every single time.
+- Wire up the different class into the Nest DI container/Injector using the `@Injectable` decorator
+- We don’t have to register controllers with the DI container because nestjs automatically creates a instance of the controller in the module
 
 ## CLI commands
 
